@@ -1,0 +1,24 @@
+<html>
+<section id="day3">
+  <h2>Day 3: Cycling in Nelson</h2>
+  <div id="map-day3" style="height: 400px;"></div>
+  <div class="image-popup">
+    <p>🚲 Cycling through Queen's Gardens</p>
+    <img src="img/placeholder.jpg" alt="Queen's Gardens">
+  </div>
+  <div class="image-popup">
+    <p>🍴 Dinner at Hawker House</p>
+    <img src="img/placeholder.jpg" alt="Hawker House">
+  </div>
+</section>
+</html>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+     const map3 = L.map('map-day3').setView([-41.270, 173.283], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3);
+  const day3Points = [
+    ["Queen's Gardens", -41.2705, 173.284],
+    ["Hawker House", -41.270, 173.294]
+  ];
+  day3Points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map3).bindPopup(label));
+</script>
