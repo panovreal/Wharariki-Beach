@@ -1,6 +1,33 @@
-<section id="day2">
-  <h2>Day 2: Wharariki Beach & Golden Bay</h2>
-  <div id="map-day2" style="height: 400px;"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 2: Wharariki Beach & Golden Bay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1, h2 { text-align: center; }
+    section { padding: 20px; background: #fff; }
+    #map-day2 { height: 400px; margin: 20px 0; }
+    .image-popup { text-align: center; margin: 10px 0; }
+    img { max-width: 90%; border-radius: 8px; box-shadow: 0 0 5px #999; }
+    .nav { text-align: center; margin: 30px 0; }
+    .nav a {
+      padding: 12px 24px;
+      background: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Day 2: Wharariki Beach & Golden Bay</h1>
+
+<section>
+  <div id="map-day2"></div>
   <div class="image-popup">
     <p>🍽️ Brunch at Kimi Ora Eco Resort</p>
     <img src="img/placeholder.jpg" alt="Brunch">
@@ -22,3 +49,24 @@
     <img src="img/placeholder.jpg" alt="Old School Café">
   </div>
 </section>
+
+<div class="nav">
+  <a href="day3.html">Continue to Day 3 ➡️</a>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map-day2').setView([-40.5, 172.7], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  const points = [
+    ["Kimi Ora Eco Resort", -41.045, 173.025],
+    ["Golden Bay", -40.821, 172.837],
+    ["Wharariki Beach", -40.507, 172.656],
+    ["Cape Farewell", -40.498, 172.683],
+    ["Old School Café", -40.828, 172.798]
+  ];
+  points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map).bindPopup(label));
+</script>
+
+</body>
+</html>
