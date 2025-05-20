@@ -1,7 +1,33 @@
-<html>
-<section id="day3">
-  <h2>Day 3: Cycling in Nelson</h2>
-  <div id="map-day3" style="height: 400px;"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 3: Cycling in Nelson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1, h2 { text-align: center; }
+    section { padding: 20px; background: #fff; }
+    #map-day3 { height: 400px; margin: 20px 0; }
+    .image-popup { text-align: center; margin: 10px 0; }
+    img { max-width: 90%; border-radius: 8px; box-shadow: 0 0 5px #999; }
+    .nav { text-align: center; margin: 30px 0; }
+    .nav a {
+      padding: 12px 24px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Day 3: Cycling in Nelson</h1>
+
+<section>
+  <div id="map-day3"></div>
   <div class="image-popup">
     <p>🚲 Cycling through Queen's Gardens</p>
     <img src="img/placeholder.jpg" alt="Queen's Gardens">
@@ -11,14 +37,22 @@
     <img src="img/placeholder.jpg" alt="Hawker House">
   </div>
 </section>
-</html>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-     const map3 = L.map('map-day3').setView([-41.270, 173.283], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3);
-  const day3Points = [
+
+<div class="nav">
+  <p>🎉 Thanks for exploring Wharariki Beach with us!</p>
+  <a href="index.html">🏠 Back to Start</a>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map-day3').setView([-41.270, 173.283], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  const points = [
     ["Queen's Gardens", -41.2705, 173.284],
     ["Hawker House", -41.270, 173.294]
   ];
-  day3Points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map3).bindPopup(label));
+  points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map).bindPopup(label));
 </script>
+
+</body>
+</html>
