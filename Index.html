@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wharariki Beach Dream Vacation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1, h2 { text-align: center; }
+    section { padding: 20px; border-bottom: 1px solid #ddd; background: #fff; }
+    #map { height: 400px; margin: 20px 0; }
+    .image-popup { text-align: center; margin: 10px 0; }
+    img { max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 0 5px #999; }
+  </style>
+</head>
+<body>
+ 
+<h1>🌊 Wharariki Beach Virtual Vacation</h1>
+ 
+<!-- Day 1 -->
+<section id="day1">
+  <h2>Day 1: Arrival & Kaiteriteri</h2>
+  <div id="map-day1" style="height: 400px;"></div>
+  <div class="image-popup">
+    <p>🏨 Kimi Ora Eco Resort</p>
+    <img src="img/placeholder.jpg" alt="Kimi Ora Eco Resort">
+  </div>
+  <div class="image-popup">
+    <p>🌙 Dinner at the Waterfront</p>
+    <img src="img/placeholder.jpg" alt="Dinner at Waterfront">
+  </div>
+  <div class="image-popup">
+    <p>🌅 Kaiteriteri Beach at Night</p>
+    <img src="img/placeholder.jpg" alt="Kaiteriteri Beach">
+  </div>
+</section>
+ 
+<!-- Day 2 -->
+<section id="day2">
+  <h2>Day 2: Wharariki Beach & Golden Bay</h2>
+  <div id="map-day2" style="height: 400px;"></div>
+  <div class="image-popup">
+    <p>🍽️ Brunch at Kimi Ora Eco Resort</p>
+    <img src="img/placeholder.jpg" alt="Brunch">
+  </div>
+  <div class="image-popup">
+    <p>🌄 Wharariki Beach at Dawn</p>
+    <img src="img/placeholder.jpg" alt="Wharariki Beach">
+  </div>
+  <div class="image-popup">
+    <p>🪨 The Stump & Caves</p>
+    <img src="img/placeholder.jpg" alt="Caves">
+  </div>
+  <div class="image-popup">
+    <p>🌁 Cape Farewell Headland</p>
+    <img src="img/placeholder.jpg" alt="Cape Farewell">
+  </div>
+  <div class="image-popup">
+    <p>🍝 Dinner at Old School Café</p>
+    <img src="img/placeholder.jpg" alt="Old School Café">
+  </div>
+</section>
+ 
+<!-- Day 3 -->
+<section id="day3">
+  <h2>Day 3: Cycling in Nelson</h2>
+  <div id="map-day3" style="height: 400px;"></div>
+  <div class="image-popup">
+    <p>🚲 Cycling through Queen's Gardens</p>
+    <img src="img/placeholder.jpg" alt="Queen's Gardens">
+  </div>
+  <div class="image-popup">
+    <p>🍴 Dinner at Hawker House</p>
+    <img src="img/placeholder.jpg" alt="Hawker House">
+  </div>
+</section>
+ 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Map Day 1
+  const map1 = L.map('map-day1').setView([-41.267, 173.299], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map1);
+  const day1Points = [
+    ["Nelson Airport (NSN)", -41.298, 173.221],
+    ["Kaiteriteri", -41.045, 173.019],
+    ["Kimi Ora Eco Resort", -41.045, 173.025]
+  ];
+  day1Points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map1).bindPopup(label));
+ 
+  // Map Day 2
+  const map2 = L.map('map-day2').setView([-40.5, 172.7], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map2);
+  const day2Points = [
+    ["Kimi Ora Eco Resort", -41.045, 173.025],
+    ["Golden Bay", -40.821, 172.837],
+    ["Wharariki Beach", -40.507, 172.656],
+    ["Cape Farewell", -40.498, 172.683],
+    ["Old School Café", -40.828, 172.798]
+  ];
+  day2Points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map2).bindPopup(label));
+ 
+  // Map Day 3
+  const map3 = L.map('map-day3').setView([-41.270, 173.283], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3);
+  const day3Points = [
+    ["Queen's Gardens", -41.2705, 173.284],
+    ["Hawker House", -41.270, 173.294]
+  ];
+  day3Points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map3).bindPopup(label));
+</script>
+ 
+</body>
+</html>
