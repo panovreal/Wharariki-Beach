@@ -1,0 +1,24 @@
+<section id="day2">
+  <h2>Day 2: Wharariki Beach & Golden Bay</h2>
+  <div id="map-day2" style="height: 400px;"></div>
+  <div class="image-popup">
+    <p>🍽️ Brunch at Kimi Ora Eco Resort</p>
+    <img src="img/placeholder.jpg" alt="Brunch">
+  </div>
+  <div class="image-popup">
+    <p>🌄 Wharariki Beach at Dawn</p>
+    <img src="img/placeholder.jpg" alt="Wharariki Beach">
+  </div>
+  <div class="image-popup">
+    <p>🪨 The Stump & Caves</p>
+    <img src="img/placeholder.jpg" alt="Caves">
+  </div>
+  <div class="image-popup">
+    <p>🌁 Cape Farewell Headland</p>
+    <img src="img/placeholder.jpg" alt="Cape Farewell">
+  </div>
+  <div class="image-popup">
+    <p>🍝 Dinner at Old School Café</p>
+    <img src="img/placeholder.jpg" alt="Old School Café">
+  </div>
+</section>
