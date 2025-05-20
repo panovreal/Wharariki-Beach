@@ -2,48 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Wharariki Beach Virtual Vacation</title>
+  <title>Day 1: Arrival & Kaiteriteri</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #cce7ff, #ffffff);
-      text-align: center;
-      padding: 100px 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      color: #004466;
-    }
-    p {
-      font-size: 1.2em;
-      color: #333;
-    }
-    .start-button {
-      display: inline-block;
-      padding: 15px 30px;
-      margin-top: 40px;
-      font-size: 18px;
-      background-color: #0077cc;
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1, h2 { text-align: center; }
+    section { padding: 20px; background: #fff; }
+    #map-day1 { height: 400px; margin: 20px 0; }
+    .image-popup { text-align: center; margin: 10px 0; }
+    img { max-width: 90%; border-radius: 8px; box-shadow: 0 0 5px #999; }
+    .nav { text-align: center; margin: 30px 0; }
+    .nav a {
+      padding: 12px 24px;
+      background: #0077cc;
       color: white;
-      border: none;
-      border-radius: 8px;
       text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
-    }
-    .start-button:hover {
-      background-color: #005fa3;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
 
-  <h1>🌊 Wharariki Beach Virtual Vacation</h1>
-  <p>Click the button below to begin your 3-day dream getaway through beautiful New Zealand.</p>
-  
-  <a class="start-button" href="day1.html">Start Day 1 ➡️</a>
+<h1>Day 1: Arrival & Kaiteriteri</h1>
+
+<section>
+  <div id="map-day1"></div>
+  <div class="image-popup">
+    <p>🏨 Kimi Ora Eco Resort</p>
+    <img src="img/placeholder.jpg" alt="Kimi Ora Eco Resort">
+  </div>
+  <div class="image-popup">
+    <p>🌙 Dinner at the Waterfront</p>
+    <img src="img/placeholder.jpg" alt="Dinner">
+  </div>
+  <div class="image-popup">
+    <p>🌅 Kaiteriteri Beach at Night</p>
+    <img src="img/placeholder.jpg" alt="Kaiteriteri Beach">
+  </div>
+</section>
+
+<div class="nav">
+  <a href="day2.html">Continue to Day 2 ➡️</a>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map-day1').setView([-41.267, 173.299], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  const points = [
+    ["Nelson Airport (NSN)", -41.298, 173.221],
+    ["Kaiteriteri", -41.045, 173.019],
+    ["Kimi Ora Eco Resort", -41.045, 173.025]
+  ];
+  points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map).bindPopup(label));
+</script>
 
 </body>
 </html>
