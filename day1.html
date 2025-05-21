@@ -6,57 +6,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    h1, h2 { text-align: center; }
-    section { padding: 20px; background: #fff; }
-    #map-day1 { height: 400px; margin: 20px 0; }
-    .image-popup { text-align: center; margin: 10px 0; }
-    img { max-width: 90%; border-radius: 8px; box-shadow: 0 0 5px #999; }
-    .nav { text-align: center; margin: 30px 0; }
-    .nav a {
-      padding: 12px 24px;
-      background: #0077cc;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #004466;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    header a {
+      flex: 1;
+      text-align: center;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 0;
+      transition: background-color 0.3s;
+    }
+
+    header a:hover {
+      background-color: #005fa3;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px 10px;
+      color: #004466;
+    }
+
+    section {
+      padding: 20px;
+      background: #fff;
+    }
+
+    #map-day1 {
+      height: 400px;
+      margin: 20px 0;
+    }
+
+    /* Horizontal Timeline */
+    .timeline-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow-x: auto;
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+
+    .timeline-event {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 0 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 220px;
+      position: relative;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-event::after {
+      content: '→';
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #0077cc;
+    }
+
+    .timeline-event:last-child::after {
+      display: none;
+    }
+
+    .event-time {
+      font-weight: bold;
+      color: #0077cc;
+      margin-bottom: 8px;
+    }
+
+    .image-popup img {
+      max-width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 5px #999;
     }
   </style>
 </head>
 <body>
 
-<h1>Day 1: Arrival & Kaiteriteri</h1>
+  <header>
+    <a href="day1.html">Day 1</a>
+    <a href="day2.html">Day 2</a>
+    <a href="day3.html">Day 3</a>
+  </header>
 
-<section>
-  <div id="map-day1"></div>
-  <div class="image-popup">
-    <p>🏨 Kimi Ora Eco Resort</p>
-    <img src="img/placeholder.jpg" alt="Kimi Ora Eco Resort">
-  </div>
-  <div class="image-popup">
-    <p>🌙 Dinner at the Waterfront</p>
-    <img src="img/placeholder.jpg" alt="Dinner">
-  </div>
-  <div class="image-popup">
-    <p>🌅 Kaiteriteri Beach at Night</p>
-    <img src="img/placeholder.jpg" alt="Kaiteriteri Beach">
-  </div>
-</section>
+  <h1>Day 1: Arrival & Kaiteriteri</h1>
 
-<div class="nav">
-  <a href="day2.html">Continue to Day 2 ➡️</a>
-</div>
+  <section>
+    <div id="map-day1"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  const map = L.map('map-day1').setView([-41.267, 173.299], 9);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-  const points = [
-    ["Nelson Airport (NSN)", -41.298, 173.221],
-    ["Kaiteriteri", -41.045, 173.019],
-    ["Kimi Ora Eco Resort", -41.045, 173.025]
-  ];
-  points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map).bindPopup(label));
-</script>
+    <div class="timeline-container">
+      <div class="timeline-event">
+        <div class="event-time">3:00 PM</div>
+        <p>🏨 Kimi Ora Eco Resort</p>
+        <img src="img/placeholder.jpg" alt="Kimi Ora Eco Resort">
+      </div>
+      <div class="timeline-event">
+        <div class="event-time">6:30 PM</div>
+        <p>🌙 Dinner at the Waterfront</p>
+        <img src="img/placeholder.jpg" alt="Dinner">
+      </div>
+      <div class="timeline-event">
+        <div class="event-time">8:00 PM</div>
+        <p>🌅 Kaiteriteri Beach at Night</p>
+        <img src="img/placeholder.jpg" alt="Kaiteriteri Beach">
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map-day1').setView([-41.267, 173.299], 9);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    const points = [
+      ["Nelson Airport (NSN)", -41.298, 173.221],
+      ["Kaiteriteri", -41.045, 173.019],
+      ["Kimi Ora Eco Resort", -41.045, 173.025]
+    ];
+    points.forEach(([label, lat, lon]) =>
+      L.marker([lat, lon]).addTo(map).bindPopup(label)
+    );
+  </script>
 
 </body>
 </html>
+
