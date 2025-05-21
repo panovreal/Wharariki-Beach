@@ -6,13 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    h1, h2 { text-align: center; }
-    section { padding: 20px; background: #fff; }
-    #map-day3 { height: 400px; margin: 20px 0; }
-    .image-popup { text-align: center; margin: 10px 0; }
-    img { max-width: 90%; border-radius: 8px; box-shadow: 0 0 5px #999; }
-    .nav { text-align: center; margin: 30px 0; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    /* Sticky Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    header a {
+      flex: 1;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 0;
+      transition: background-color 0.3s;
+    }
+
+    header a:hover {
+      background-color: #005fa3;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px 10px;
+      color: #004466;
+    }
+
+    section {
+      padding: 20px;
+      background: #fff;
+    }
+
+    #map-day3 {
+      height: 400px;
+      margin: 20px 0;
+    }
+
+    /* Horizontal Timeline */
+    .timeline-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      overflow-x: auto;
+      padding: 20px 0;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-event {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      min-width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-event::after {
+      content: '→';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #0077cc;
+    }
+
+    .timeline-event:last-child::after {
+      display: none;
+    }
+
+    .event-time {
+      font-weight: bold;
+      color: #28a745;
+      margin-bottom: 8px;
+    }
+
+    .timeline-event img {
+      max-width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 5px #999;
+      margin-top: 10px;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
     .nav a {
       padding: 12px 24px;
       background: #28a745;
@@ -24,35 +121,50 @@
 </head>
 <body>
 
-<h1>Day 3: Cycling in Nelson</h1>
+  <!-- Sticky Navigation Header -->
+  <header>
+    <a href="day1.html">Day 1</a>
+    <a href="day2.html">Day 2</a>
+    <a href="day3.html">Day 3</a>
+  </header>
 
-<section>
-  <div id="map-day3"></div>
-  <div class="image-popup">
-    <p>🚲 Cycling through Queen's Gardens</p>
-    <img src="img/placeholder.jpg" alt="Queen's Gardens">
+  <h1>Day 3: Cycling in Nelson</h1>
+
+  <section>
+    <div id="map-day3"></div>
+
+    <!-- Horizontal Timeline -->
+    <div class="timeline-container">
+      <div class="timeline-event">
+        <div class="event-time">10:00 AM</div>
+        <p>🚲 Cycling through Queen's Gardens</p>
+        <img src="img/placeholder.jpg" alt="Queen's Gardens">
+      </div>
+      <div class="timeline-event">
+        <div class="event-time">6:30 PM</div>
+        <p>🍴 Dinner at Hawker House</p>
+        <img src="img/placeholder.jpg" alt="Hawker House">
+      </div>
+    </div>
+  </section>
+
+  <div class="nav">
+    <p>🎉 Thanks for exploring Wharariki Beach with us!</p>
+    <a href="index.html">🏠 Back to Start</a>
   </div>
-  <div class="image-popup">
-    <p>🍴 Dinner at Hawker House</p>
-    <img src="img/placeholder.jpg" alt="Hawker House">
-  </div>
-</section>
 
-<div class="nav">
-  <p>🎉 Thanks for exploring Wharariki Beach with us!</p>
-  <a href="index.html">🏠 Back to Start</a>
-</div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  const map = L.map('map-day3').setView([-41.270, 173.283], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-  const points = [
-    ["Queen's Gardens", -41.2705, 173.284],
-    ["Hawker House", -41.270, 173.294]
-  ];
-  points.forEach(([label, lat, lon]) => L.marker([lat, lon]).addTo(map).bindPopup(label));
-</script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map-day3').setView([-41.270, 173.283], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    const points = [
+      ["Queen's Gardens", -41.2705, 173.284],
+      ["Hawker House", -41.270, 173.294]
+    ];
+    points.forEach(([label, lat, lon]) =>
+      L.marker([lat, lon]).addTo(map).bindPopup(label)
+    );
+  </script>
 
 </body>
 </html>
