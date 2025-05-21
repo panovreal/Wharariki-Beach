@@ -16,23 +16,27 @@
       position: sticky;
       top: 0;
       background-color: #004466;
-      padding: 15px 0;
-      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       z-index: 1000;
     }
 
     header a {
+      flex: 1;
+      text-align: center;
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-size: 18px;
       font-weight: bold;
-      transition: color 0.3s;
+      padding: 15px 0;
+      transition: background-color 0.3s;
     }
 
     header a:hover {
-      color: #aaddff;
+      background-color: #005fa3;
     }
 
     main {
