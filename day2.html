@@ -57,53 +57,55 @@
     }
 
     /* Horizontal Timeline */
-    .timeline-container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      overflow-x: auto;
-      padding: 20px 0;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
+  .timeline-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    margin-bottom: 40px;
+  }
 
-    .timeline-event {
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      min-width: 220px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
-      text-align: center;
-      flex-shrink: 0;
-    }
+  .timeline-event {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 220px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+    flex-shrink: 0;
+  }
 
-    .timeline-event::after {
-      content: '→';
-      position: absolute;
-      right: -12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
-      color: #0077cc;
-    }
+  .timeline-event::before {
+    content: '←';
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #0077cc;
+  }
 
-    .timeline-event:last-child::after {
-      display: none;
-    }
+  .timeline-event:last-child::before {
+    display: none;
+  }
 
-    .event-time {
-      font-weight: bold;
-      color: #0077cc;
-      margin-bottom: 8px;
-    }
+  .event-time {
+    font-weight: bold;
+    color: #0077cc;
+    margin-bottom: 8px;
+  }
 
-    .timeline-event img {
-      max-width: 90%;
-      border-radius: 8px;
-      box-shadow: 0 0 5px #999;
-      margin-top: 10px;
-    }
+  .timeline-event img {
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #999;
+    margin-top: 10px;
+  }
+
   </style>
 </head>
 <body>
@@ -122,32 +124,32 @@
 
     <!-- Timeline Events -->
     <div class="timeline-container">
-      <div class="timeline-event">
-        <div class="event-time">9:00 AM</div>
-        <p>🍽️ Brunch at Kimi Ora Eco Resort</p>
-        <img src="img/placeholder.jpg" alt="Brunch">
-      </div>
-      <div class="timeline-event">
-        <div class="event-time">11:30 AM</div>
-        <p>🌄 Wharariki Beach at Dawn</p>
-        <img src="img/placeholder.jpg" alt="Wharariki Beach">
-      </div>
-      <div class="timeline-event">
-        <div class="event-time">1:00 PM</div>
-        <p>🪨 The Stump & Caves</p>
-        <img src="img/placeholder.jpg" alt="Caves">
-      </div>
-      <div class="timeline-event">
-        <div class="event-time">3:00 PM</div>
-        <p>🌁 Cape Farewell Headland</p>
-        <img src="img/placeholder.jpg" alt="Cape Farewell">
-      </div>
-      <div class="timeline-event">
-        <div class="event-time">7:00 PM</div>
-        <p>🍝 Dinner at Old School Café</p>
-        <img src="img/placeholder.jpg" alt="Old School Café">
-      </div>
-    </div>
+  <div class="timeline-event">
+    <div class="event-time">7:00 PM</div>
+    <p>🍝 Dinner at Old School Café</p>
+    <img src="img/placeholder.jpg" alt="Old School Café">
+  </div>
+  <div class="timeline-event">
+    <div class="event-time">4:00 PM</div>
+    <p>🌁 Cape Farewell Headland</p>
+    <img src="img/placeholder.jpg" alt="Cape Farewell">
+  </div>
+  <div class="timeline-event">
+    <div class="event-time">3:00 PM</div>
+    <p>🪨 The Stump & Caves</p>
+    <img src="img/placeholder.jpg" alt="Caves">
+  </div>
+  <div class="timeline-event">
+    <div class="event-time">1:00 PM</div>
+    <p>🌄 Wharariki Beach at Dawn</p>
+    <img src="img/placeholder.jpg" alt="Wharariki Beach">
+  </div>
+  <div class="timeline-event">
+    <div class="event-time">10:00 AM</div>
+    <p>🍽️ Brunch at Kimi Ora Eco Resort</p>
+    <img src="img/placeholder.jpg" alt="Brunch">
+  </div>
+</div>
   </section>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
