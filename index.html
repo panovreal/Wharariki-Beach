@@ -8,45 +8,61 @@
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom, #cce7ff, #ffffff);
-      text-align: center;
-      padding: 100px 20px;
+      margin: 0;
+      padding: 0;
     }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #004466;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header a:hover {
+      color: #aaddff;
+    }
+
+    main {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
     h1 {
       font-size: 2.5em;
       color: #004466;
     }
+
     p {
       font-size: 1.2em;
       color: #333;
-    }
-    .start-button {
-      display: inline-block;
-      padding: 15px 30px;
-      margin-top: 40px;
-      font-size: 18px;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
-    }
-    .start-button:hover {
-      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
 
-  <h1>🌊 Wharariki Beach Virtual Vacation</h1>
-  <p>Click the button below to begin your 3-day dream getaway through beautiful New Zealand.</p>
-  
-  <a class="start-button" href="day1.html">Day 1</a>
-  <a class="start-button" href="day2.html">Day 2</a>
-  <a class="start-button" href="day3.html">Day 3</a>
+  <header>
+    <a href="day1.html">Day 1</a>
+    <a href="day2.html">Day 2</a>
+    <a href="day3.html">Day 3</a>
+  </header>
 
+  <main>
+    <h1>🌊 Wharariki Beach Virtual Vacation</h1>
+    <p>Click a day above to begin your 3-day dream getaway through beautiful New Zealand.</p>
+  </main>
 
 </body>
 </html>
